@@ -1,0 +1,21 @@
+version: '3.9'
+services:
+  master:
+    image: kiplink/jampi-master:1.2
+    container_name: jampi-master
+    networks:
+      - local-network
+    ports:
+      - '8081:80'
+    expose:
+      - 8081
+    environment:
+      - DB_HOST=postgres
+      - DB_USER=kipz
+      - DB_PASSWORD=m4tem4tik4
+      - DB_PORT=5432
+      - DB_NAME=jampi
+networks:
+  local-network:
+    external: true
+    name: local-network
